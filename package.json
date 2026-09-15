@@ -1,0 +1,22 @@
+{
+  "name": "reelax-assistant",
+  "version": "0.1.0",
+  "private": true,
+  "description": "奥术摸鱼大师（Arcane Reelax）辅助控制台 — 保持在线引擎 + 可扩展插件系统",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "concurrently -n server,web -c blue,magenta \"npm:dev -w server\" \"npm:dev -w web\"",
+    "build": "npm run build -w web",
+    "start": "npm run start -w server",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "workspaces": [
+    "server",
+    "web"
+  ]
+}

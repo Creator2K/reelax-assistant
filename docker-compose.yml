@@ -1,0 +1,15 @@
+services:
+  reelax-assistant:
+    build: .
+    container_name: reelax-assistant
+    restart: unless-stopped
+    ports:
+      - "8580:8580"
+    environment:
+      # 启动前必须设置长随机串；控制台右上角「访问令牌」填同一值
+      AUTH_TOKEN: "${AUTH_TOKEN:?请先设置 AUTH_TOKEN 环境变量}"
+      # REELAX_BASE_URL: "https://test.reelax.cn"
+    volumes:
+      - reelax-data:/app/server/data
+volumes:
+  reelax-data:
